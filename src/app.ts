@@ -50,13 +50,13 @@ const render = () => {
   });
 };
 
-const addTask = (taskName: string) => {
-  tasks.push({ name: taskName, done: false });
+const addTask = (task: { name: string; done: boolean }) => {
+  tasks.push(task);
 };
 
 addButtonElement.addEventListener("click", (event: Event) => {
   event.preventDefault();
-  addTask(taskNameInputElement.value);
+  addTask({ name: taskNameInputElement.value, done: false });
   render();
 });
 
