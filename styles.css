@@ -58,3 +58,29 @@ button:hover {
 .tasks input {
   margin-left: 0.8rem;
 }
+
+.categories li {
+  align-items: center;
+  display: flex;
+  list-style-type: none;
+}
+
+.categories input {
+  margin-right: 8px;
+}
+
+.general {
+  color: #57e73eff;
+}
+
+.work {
+  color: #e7923eff;
+}
+
+.house {
+  color: #3eafe7ff;
+}
+
+.hobby {
+  color: #df4ebdff;
+}

@@ -1,28 +1,33 @@
 const taskNameInputElement: HTMLInputElement = document.querySelector("#name");
 const addButtonElement: HTMLButtonElement = document.querySelector("button");
 const tasksContainerElement: HTMLElement = document.querySelector(".tasks");
+const categoriesContainerelement: HTMLElement = document.querySelector(".categories");
+
+type Category = "general" | "work" | "house" | "hobby";
 
 interface Task {
   name: string;
   done: boolean;
+  category?: Category;
 }
+
+const categories: Category[] = ["general", "work", "house", "hobby"];
 
 const tasks: Task[] = [
   {
     name: "Feed the dog",
     done: false,
+    category: "work",
   },
   {
     name: "Paint walls",
-    done: true,
+    done: false,
+    category: "house",
   },
   {
     name: "Cook the dinner",
     done: false,
-  },
-  {
-    name: "Fix the cabinet",
-    done: false,
+    category: "general",
   },
 ];
 
@@ -30,6 +35,9 @@ const render = () => {
   tasksContainerElement.innerHTML = "";
   tasks.forEach((task, index) => {
     const taskElement: HTMLElement = document.createElement("li");
+    if (task.category) {
+      taskElement.classList.add(task.category);
+    }
     const id: string = `task-${index}`;
 
     const labelElement: HTMLLabelElement = document.createElement("label");
@@ -52,15 +60,44 @@ const render = () => {
   });
 };
 
+const renderCategories = () => {
+  categories.forEach((category) => {
+    const categoryElement: HTMLElement = document.createElement("li");
+
+    const radioInputElement: HTMLInputElement = document.createElement("input");
+    radioInputElement.type = "radio";
+    radioInputElement.name = "category";
+    radioInputElement.value = category;
+    radioInputElement.id = `category-${category}`;
+
+    const labelElement: HTMLLabelElement = document.createElement("label");
+    labelElement.setAttribute("for", `category-${category}`);
+    labelElement.innerText = category;
+
+    categoryElement.appendChild(radioInputElement);
+    categoryElement.appendChild(labelElement);
+
+    categoriesContainerelement.appendChild(categoryElement);
+  });
+};
+
 const addTask = (task: Task) => {
   tasks.push(task);
 };
 
 addButtonElement.addEventListener("click", (event: Event) => {
+  const selectedRadioElement: HTMLInputElement = document.querySelector('input[type="radio"]:checked');
+  const selectedCategory: Category = selectedRadioElement.value as Category;
   event.preventDefault();
-  addTask({ name: taskNameInputElement.value, done: false });
+  addTask({
+    name: taskNameInputElement.value,
+    done: false,
+    category: selectedCategory,
+  });
   render();
 });
 
-addTask({ name: "special task", done: true });
+addTask({ name: "sign documents", category: "work", done: false });
+
+renderCategories();
 render();
