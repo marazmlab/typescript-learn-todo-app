@@ -2,6 +2,7 @@ const taskNameInputElement = document.querySelector("#name");
 const addButtonElement = document.querySelector("button");
 const tasksContainerElement = document.querySelector(".tasks");
 const categoriesContainerelement = document.querySelector(".categories");
+let selectedCategory;
 const categories = ["general", "work", "house", "hobby"];
 const tasks = [
     {
@@ -52,6 +53,9 @@ const renderCategories = () => {
         radioInputElement.name = "category";
         radioInputElement.value = category;
         radioInputElement.id = `category-${category}`;
+        radioInputElement.addEventListener("change", () => {
+            selectedCategory = category;
+        });
         const labelElement = document.createElement("label");
         labelElement.setAttribute("for", `category-${category}`);
         labelElement.innerText = category;
@@ -64,8 +68,6 @@ const addTask = (task) => {
     tasks.push(task);
 };
 addButtonElement.addEventListener("click", (event) => {
-    const selectedRadioElement = document.querySelector('input[type="radio"]:checked');
-    const selectedCategory = selectedRadioElement.value;
     event.preventDefault();
     addTask({
         name: taskNameInputElement.value,
