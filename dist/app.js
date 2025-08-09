@@ -48,4 +48,5 @@ addButtonElement.addEventListener("click", (event) => {
     addTask({ name: taskNameInputElement.value, done: false });
     render();
 });
+addTask({ name: "special task", done: true });
 render();
