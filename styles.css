@@ -50,3 +50,11 @@ button {
 button:hover {
   background: var(--color-primary);
 }
+
+.tasks {
+  margin-top: 0.5rem;
+}
+
+.tasks input {
+  margin-left: 0.8rem;
+}
