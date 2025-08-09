@@ -1,7 +1,3 @@
-// <li>
-//   <label for="task1">Feed dog</label>
-//   <input type="checkbox" id="task-1" name="Feed dog" />
-// </li>;
 const taskNameInputElement = document.querySelector("#name");
 const addButtonElement = document.querySelector("button");
 const tasksContainerElement = document.querySelector(".tasks");
