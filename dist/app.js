@@ -1,4 +1,4 @@
-import { render } from "./helpers/render-tasks.helper";
+import { render } from "./helpers/render-tasks.helper.js";
 const taskNameInputElement = document.querySelector("#name");
 const addButtonElement = document.querySelector("button");
 const tasksContainerElement = document.querySelector(".tasks");
