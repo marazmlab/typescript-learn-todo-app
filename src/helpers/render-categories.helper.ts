@@ -1,17 +1,17 @@
-import { Category } from "../types/types";
+import { Category } from "../types/types.js";
 
 const handleCategoryChange = (category: Category) => {
-  if (category === "general") {
+  if (category === Category.GENERAL) {
     console.log("change for general");
-  } else if (category === "hobby") {
+  } else if (category === Category.HOBBY) {
     alert("going for chill");
-  } else if (category === "work") {
+  } else if (category === Category.WORK) {
     document.body.style.background = "red";
-  } else if (category === "house") {
+  } else if (category === Category.HOUSE) {
     console.log("work work work");
     alert("going to work");
     document.body.style.background = "green";
-  } else if (category === "social") {
+  } else if (category === Category.SOCIAL) {
     document.body.style.background = "yellow";
   } else {
     const never: never = category;
