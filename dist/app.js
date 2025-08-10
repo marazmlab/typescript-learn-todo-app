@@ -78,3 +78,4 @@ addButtonElement.addEventListener("click", (event) => {
 });
 renderCategories();
 render();
+export {};
