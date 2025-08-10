@@ -100,7 +100,5 @@ addButtonElement.addEventListener("click", (event: Event) => {
   render();
 });
 
-addTask({ name: "sign documents", category: "work", done: false });
-
 renderCategories();
 render();
