@@ -1,5 +1,5 @@
 import { Task, Category } from "./types/types";
-import { render } from "./helpers/render-tasks.helper.js";
+import renderTasks from "./helpers/render-tasks.helper.js";
 import { render as renderCategories } from "./helpers/render-categories.helper.js";
 
 const taskNameInputElement: HTMLInputElement = document.querySelector("#name");
@@ -40,8 +40,8 @@ addButtonElement.addEventListener("click", (event: Event) => {
     done: false,
     category: selectedCategory,
   });
-  render(tasks, tasksContainerElement);
+  renderTasks(tasks, tasksContainerElement);
 });
 
 renderCategories(categories, categoriesContainerelement, selectedCategory);
-render(tasks, tasksContainerElement);
+renderTasks(tasks, tasksContainerElement);
