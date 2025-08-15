@@ -6,7 +6,7 @@ export class TaskClass {
         this.category = category;
         this.createdAt = new Date();
     }
-    logCreationDate() {
-        console.log(`Task created at ${this.createdAt}`);
+    logCreationDate(extra) {
+        console.log(`Task created at ${this.createdAt} ${extra || ""}`);
     }
 }
