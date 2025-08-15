@@ -1,4 +1,4 @@
-import { Category } from "./types/types.js";
+import { Task, Category } from "./types/types.js";
 import renderTasks from "./helpers/render-tasks.helper.js";
 import { render as renderCategories } from "./helpers/render-categories.helper.js";
 import { TaskClass } from "./classes/task.js";
@@ -15,21 +15,9 @@ const categories = [
     Category.SOCIAL,
 ];
 const tasks = [
-    {
-        name: "Feed the dog",
-        done: false,
-        category: Category.WORK,
-    },
-    {
-        name: "Paint walls",
-        done: false,
-        category: Category.HOUSE,
-    },
-    {
-        name: "Cook the dinner",
-        done: false,
-        category: Category.GENERAL,
-    },
+    new Task("Feed the dog", false, Category.HOBBY),
+    new Task("Paint the wall", false, Category.HOUSE),
+    new Task("Cook the dinner", false),
 ];
 const addTask = (task) => {
     tasks.push(task);
@@ -39,18 +27,13 @@ const updateSelectedCategory = (newCategory) => {
 };
 addButtonElement.addEventListener("click", (event) => {
     event.preventDefault();
-    addTask({
-        name: taskNameInputElement.value,
-        done: false,
-        category: selectedCategory,
-    });
+    addTask(new Task(taskNameInputElement.value, false, selectedCategory));
     renderTasks(tasks, tasksContainerElement);
 });
 const task = ["zrobić model", Category.HOBBY, false];
 const taskName = task[0];
 const taskCategory = task[1];
 const taskDoneStatus = task[2];
-addTask({ name: taskName, category: taskCategory, done: taskDoneStatus });
 renderCategories(categories, categoriesContainerelement, updateSelectedCategory);
 renderTasks(tasks, tasksContainerElement);
 const taskClassInstance = new TaskClass("contructor task", false);
