@@ -68,5 +68,3 @@ renderCategories(categories, categoriesContainerelement, updateSelectedCategory)
 renderTasks(tasks, tasksContainerElement);
 
 const taskClassInstance = new TaskClass("contructor task", false);
-
-taskClassInstance.logCreationDate("!");

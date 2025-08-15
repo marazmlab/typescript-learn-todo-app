@@ -1,10 +1,11 @@
 import { Category } from "../types/types.js";
 
 export class TaskClass {
-  name: string;
-  done: boolean;
-  category?: Category;
-  createdAt: Date;
+  public name: string;
+  public done: boolean;
+  public category?: Category;
+
+  private createdAt: Date;
 
   constructor(name: string, done: boolean, category: Category = Category.GENERAL) {
     this.name = name;
