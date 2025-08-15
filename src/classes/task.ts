@@ -1,6 +1,10 @@
 import { Category } from "../types/types.js";
 
-export class TaskClass {
+interface Logger {
+  logCreationDate: (addition: string) => void;
+}
+
+export class TaskClass implements Logger {
   public name: string;
   public done: boolean;
   public category?: Category;
