@@ -1,8 +1,13 @@
-export class TaskClass {
-  name: string = "Nowe zadanie";
-  done: boolean = true;
+import { Category } from "../types/types.js";
 
-  constructor() {
-    console.log("contructor");
+export class TaskClass {
+  name: string;
+  done: boolean;
+  category?: Category;
+
+  constructor(name: string, done: boolean, category: Category = Category.GENERAL) {
+    this.name = name;
+    this.done = done;
+    this.category = category;
   }
 }

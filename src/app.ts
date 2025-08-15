@@ -67,6 +67,6 @@ addTask({ name: taskName, category: taskCategory, done: taskDoneStatus });
 renderCategories(categories, categoriesContainerelement, updateSelectedCategory);
 renderTasks(tasks, tasksContainerElement);
 
-const taskClassInstance = new TaskClass();
+const taskClassInstance = new TaskClass("contructor task", false);
 
 console.log(taskClassInstance);

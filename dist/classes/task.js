@@ -1,7 +1,8 @@
+import { Category } from "../types/types.js";
 export class TaskClass {
-    constructor() {
-        this.name = "Nowe zadanie";
-        this.done = true;
-        console.log("contructor");
+    constructor(name, done, category = Category.GENERAL) {
+        this.name = name;
+        this.done = done;
+        this.category = category;
     }
 }
