@@ -69,4 +69,4 @@ renderTasks(tasks, tasksContainerElement);
 
 const taskClassInstance = new TaskClass("contructor task", false);
 
-console.log(taskClassInstance);
+taskClassInstance.logCreationDate();
