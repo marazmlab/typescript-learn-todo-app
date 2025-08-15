@@ -27,7 +27,9 @@ const updateSelectedCategory = (newCategory) => {
 };
 addButtonElement.addEventListener("click", (event) => {
     event.preventDefault();
-    addTask(new Task(taskNameInputElement.value, false, selectedCategory));
+    const newTask = new Task(taskNameInputElement.value, false, selectedCategory);
+    addTask(newTask);
+    newTask.logCreationDate("!!!");
     renderTasks(tasks, tasksContainerElement);
 });
 const task = ["zrobić model", Category.HOBBY, false];

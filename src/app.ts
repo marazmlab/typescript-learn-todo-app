@@ -34,7 +34,9 @@ const updateSelectedCategory = (newCategory: Category) => {
 
 addButtonElement.addEventListener("click", (event: Event) => {
   event.preventDefault();
-  addTask(new Task(taskNameInputElement.value, false, selectedCategory));
+  const newTask: Task = new Task(taskNameInputElement.value, false, selectedCategory);
+  addTask(newTask);
+  newTask.logCreationDate("!!!");
   renderTasks(tasks, tasksContainerElement);
 });
 
