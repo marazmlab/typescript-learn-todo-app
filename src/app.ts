@@ -1,6 +1,7 @@
 import { Task, Category } from "./types/types.js";
 import renderTasks from "./helpers/render-tasks.helper.js";
 import { render as renderCategories } from "./helpers/render-categories.helper.js";
+import { TaskClass } from "./classes/task.js";
 
 const taskNameInputElement: HTMLInputElement = document.querySelector("#name");
 const addButtonElement: HTMLButtonElement = document.querySelector("button");
@@ -65,3 +66,7 @@ addTask({ name: taskName, category: taskCategory, done: taskDoneStatus });
 
 renderCategories(categories, categoriesContainerelement, updateSelectedCategory);
 renderTasks(tasks, tasksContainerElement);
+
+const taskClassInstance = new TaskClass();
+
+console.log(taskClassInstance);
