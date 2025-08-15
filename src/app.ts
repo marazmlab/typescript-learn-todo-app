@@ -65,3 +65,21 @@ addTask({ name: taskName, category: taskCategory, done: taskDoneStatus });
 
 renderCategories(categories, categoriesContainerelement, updateSelectedCategory);
 renderTasks(tasks, tasksContainerElement);
+
+type TaskType = {
+  name: string;
+  done: boolean;
+  category?: Category;
+};
+
+interface TaskInterface {
+  name: string;
+  done: boolean;
+  category?: Category;
+}
+let newTask: TaskType;
+
+newTask = {
+  name: "nowy task",
+  done: true,
+};
